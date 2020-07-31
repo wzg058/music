@@ -1,0 +1,71 @@
+html {
+  font-size: 10px;
+}
+body {
+  width: 100%;
+}
+.help {
+  width: 100%;
+  margin-top: 6.4rem;
+  overflow: hidden;
+}
+.help img {
+  width: 2.3rem;
+  height: 4.2rem;
+  padding-left: 3.2rem;
+}
+.help a {
+  float: right;
+  font-size: 3rem;
+  color: #666666;
+  padding-right: 3.2rem;
+}
+.logoo {
+  width: 100%;
+}
+.logoo .logo {
+  width: 25rem;
+  height: 27.4rem;
+  margin-left: 24.8rem;
+  margin-top: 3rem;
+}
+.login {
+  width: 100%;
+  margin-top: 11.5rem;
+}
+.login input {
+  margin-left: 7.4rem;
+  height: 11.7rem;
+  text-align: center;
+  border: none;
+  width: 60rem;
+  border-bottom: 0.3rem solid #E8E8E8;
+  font-size: 2.8rem;
+  color: #999999;
+}
+.login .ddi {
+  position: relative;
+}
+.login .ddi .verify {
+  position: absolute;
+  right: 8rem;
+  top: 04rem;
+  font-size: 2.2rem;
+  width: 11.5rem;
+  height: 3.5rem;
+  font-weight: 600;
+}
+.skip {
+  width: 100%;
+  margin-top: 6.4rem;
+}
+.skip img {
+  padding-left: 32.6rem;
+}
+.remind {
+  width: 100%;
+  text-align: center;
+  font-size: 2.2rem;
+  color: #999999;
+  margin-top: 24.5rem;
+}
