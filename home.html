@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="./css/home.css">
+</head>
+
+<body>
+    <div class="top">
+        <span class="xuan"></span>
+        <p class="bai">我的</p>
+        <p class="hong">音乐馆</p>
+        <p class="bai">发现</p>
+        <span class="sou"></span>
+    </div>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="./imgs/home_img/home-1.png"></div>
+            <div class="swiper-slide"><img src="./imgs/home_img/home-2.jpg"></div>
+            <div class="swiper-slide"><img src="./imgs/home_img/home-3.jpg"></div>
+        </div>
+        <!-- 如果需要分页器 -->
+        <div class="swiper-pagination"></div>
+    </div>
+    <div class="option">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</body>
+<script src="./js/rem.js"></script>
+<script src="./js/jQuery.js"></script>
+<script src="./js/swiper-bundle.min.js"></script>
+<script>
+    var mySwiper = new Swiper('.swiper-container', {
+        direction: 'horizontal', 
+        loop: true, 
+
+        pagination: {
+            el: '.swiper-pagination',
+            clickable :true,
+        },
+        autoplay: {
+            delay: 1000,
+            disableOnInteraction: false,
+        },
+    })
+    for (i = 0; i < mySwiper.pagination.bullets.length; i++) {
+        mySwiper.pagination.bullets[i].onmouseover = function () {
+            this.click();
+        };
+    }
+    const url = 'http://192.168.1.45:3000/home?type=banner';
+    $.get(url,function(data){
+        
+    })
+</script>
+
+</html>
