@@ -28,11 +28,42 @@
         <div class="swiper-pagination"></div>
     </div>
     <div class="option">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
+        <div class="option_box">
+            <div class="option-img img1"></div>
+            <p>歌手</p>
+        </div>
+        <div class="option_box">
+            <div class="option-img img2"></div>
+            <p>专辑</p>
+        </div>
+        <div class="option_box">
+            <div class="option-img img3"></div>
+            <p>排行</p>
+        </div>
+        <div class="option_box">
+            <div class="option-img img4"></div>
+            <p>电台</p>
+        </div>
+        <div class="option_box">
+            <div class="option-img img5"></div>
+            <p>歌单</p>
+        </div>
+    </div>
+    <div class="songList">
+        <div class="songList_d1">精选歌单</div>
+        <div class="songList_d2">
+            <p class="son_p2">最新</p>
+            <p class="son_p1">推荐</p>
+        </div>
+    </div>
+    <div class="lis">
+
+        <!-- <div>
+            <img src="./imgs/home_img/10@2x.png" alt="">
+            <h1>轻车上路，一路飙向爱的乌托邦</h1>
+            <p>安安静静做自己</p>
+        </div> -->
+
     </div>
 </body>
 <script src="./js/rem.js"></script>
@@ -40,12 +71,12 @@
 <script src="./js/swiper-bundle.min.js"></script>
 <script>
     var mySwiper = new Swiper('.swiper-container', {
-        direction: 'horizontal', 
-        loop: true, 
+        direction: 'horizontal',
+        loop: true,
 
         pagination: {
             el: '.swiper-pagination',
-            clickable :true,
+            clickable: true,
         },
         autoplay: {
             delay: 1000,
@@ -57,10 +88,57 @@
             this.click();
         };
     }
-    const url = 'http://192.168.1.45:3000/home?type=banner';
-    $.get(url,function(data){
-        
+    const url = 'http://192.168.1.45:3000/home?type=new'
+    $('.songList_d2>p:eq(0)').on('touchstart', function () {
+        $(this).addClass('son_p2');
+        $('.songList_d2>p:eq(1)').removeClass('son_p2');
+        $.get(url, zuixin);
     })
+    $.get(url, zuixin);
+
+    function zuixin(data) {
+        var div_ = $('<div class="lis_box">');
+        for (var i = 0; i < data.musicList.length; i++) {
+            var di = $('<div class="li_">');
+            var im = $('<img>');
+            im.attr('src', data.musicList[i].imgurl)
+            di.append(im);
+            var h = $('<h1>');
+            h.text(data.musicList[i].info);
+            di.append(h);
+            var p = $('<p>');
+            p.text(data.musicList[i].title);
+            di.append(p);
+            div_.append(di);
+        }
+        $('.lis').html(div_);
+
+    }
+    const ur = 'http://192.168.1.45:3000/home?type=recommend'
+    $('.songList_d2>p:eq(1)').on('touchstart', function () {
+        $(this).addClass('son_p2');
+        $('.songList_d2>p:eq(0)').removeClass('son_p2');
+        $.get(ur, tuijian);
+    });
+
+    function tuijian(data) {
+        var div_ = $('<div class="lis_box">');
+        for (var i = 0; i < data.musicList.length; i++) {
+            var di = $('<div class="li_">');
+            $('.lis').append(di);
+            var im = $('<img>');
+            im.attr('src', data.musicList[i].imgurl)
+            di.append(im);
+            var h = $('<h1>');
+            h.text(data.musicList[i].info);
+            di.append(h);
+            var p = $('<p>');
+            p.text(data.musicList[i].title);
+            di.append(p);
+            div_.append(di);
+        }
+        $('.lis').html(div_);
+    }
 </script>
 
 </html>
