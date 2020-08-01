@@ -92,6 +92,11 @@
                         timer = setTimeout(function () {
                             location.href = './login.html';
                         }, 2000)
+                    } else {
+                        layer.open({
+                            style: 'border:none; background-color:#F4901E; color:#fff;',
+                            content: data.msg
+                        });
                     }
                 });
             };
