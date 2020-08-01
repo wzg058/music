@@ -8,6 +8,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/login.css">
+    <link rel="stylesheet" href="./css/layer.css">
     <script src=""></script>
 </head>
 
@@ -33,9 +34,9 @@
     <!-- 协议 -->
     <div class="remind">
         <div class="rem">
-             <a href="">忘记密码</a>
-             <span>|</span>
-             <a href="">用户注册</a>
+            <a href="#">忘记密码</a>
+            <span>|</span>
+            <a href="#" class="tian">用户注册</a>
         </div>
         <p>登录即代表阅读并同意<a href="">服务协议</a></p>
     </div>
@@ -44,6 +45,38 @@
         <img src="./imgs/login_img/login-qq.png" alt="">
         <img src="./imgs/login_img/login-WeChat.png" alt="">
     </div>
-    
+
 </body>
+<script src="./js/rem.js"></script>
+<script src="./js/layer.js"></script>
+<script src="./js/jQuery.js"></script>
+<script>
+    $('.tian').on('click', function () {
+        location.href = './register.html';
+    });
+    var timer = null;
+    $('.skip>img').on('click', function () {
+        if ($('.names').val() != '' && $('.pasw').val() != '') {
+            const ur = 'http://192.168.1.45:3000/users';
+            var obj = {
+                'type': 'login',
+                'phone': $('.names').val(),
+                'pass': $('.pasw').val()
+            };
+            $.post(ur, obj, function (data) {
+                if (data.msg == "登录成功") {
+                    clearInterval(timer);
+                    layer.open({
+                        style: 'border:none; background-color:#F4901E; color:#fff;',
+                        content: data.msg
+                    });
+                    timer = setTimeout(function () {
+                        location.href = './home.html';
+                    }, 2000)
+                }
+            })
+        }
+    })
+</script>
+
 </html>
