@@ -8,7 +8,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/register.css">
-    <script src=""></script>
+    <script src="./js/jQuery.js"></script>
 </head>
 <body>
     <!-- 返回,帮助 -->
@@ -22,12 +22,18 @@
     </div>
     <!-- 登录 -->
     <div class="login">
-        <input type="text" placeholder="请输入手机号">
-        <div class="ddi">
-            <input type="text" placeholder="请输入验证码" class="pasw">
-            <div class="verify">获取验证码</div>
-        </div>
-        <input type="text" placeholder="请输入密码">
+        <p class="">
+            <input type="text" placeholder="请输入手机号" id="phone">
+            <span></span>
+        </p>
+        <p class="ddi">
+            <input type="text" placeholder="请输入验证码" class="pasw" >
+            <button class="verify">获取验证码</button>
+        </p>
+        <p>
+            <input type="text" placeholder="请输入密码" id="txtpwd">
+            <span id="cwtx"></span>
+        </p>
     </div>
     <!-- 跳转 -->
     <div class="skip">
@@ -35,5 +41,6 @@
     </div>
     <!-- 提醒 -->
     <p class="remind">注册即代表同意「迷音」服务条款和隐私条款</p>
+    <script src="./js/register.js"></script>
 </body>
 </html>
